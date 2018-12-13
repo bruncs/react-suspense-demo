@@ -21,7 +21,14 @@ const Movies = withCache(props => {
           <div key={Math.random()} className="column is-4">
             <div className="movie">
               <div className="movie__left">
-                <img alt="" src={item.show.image.original} />
+                <a
+                  href={item.show.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="movie__right__subtitle"
+                >
+                  <img alt="" src={item.show.image.original} width="200" />
+                </a>
               </div>
               <div className="movie__right">
                 <div className="movie__right__title">{item.show.name}</div>
@@ -34,14 +41,6 @@ const Movies = withCache(props => {
                 <div className="movie__right__subtitle">
                   Network: {item.show.network ? item.show.network.name : "N/A"}
                 </div>
-                <a
-                  href={item.show.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="movie__right__subtitle"
-                >
-                  Link
-                </a>
               </div>
             </div>
           </div>
@@ -53,21 +52,28 @@ const Movies = withCache(props => {
 class App extends Component {
   render() {
     return (
-      <Fragment>
+      <React.StrictMode>
         <div className="App">
-          <header className="App-header">
-            <h1 className="App-title">React Suspense Demo</h1>
-          </header>
-
-          <div className="container">
-            <div className="columns is-multiline">
-              <Suspense ms={5000} fallback={<h2>Movies list is loading...</h2>}>
-                <Movies />
-              </Suspense>
-            </div>
+          <div class="tile is-parent">
+            <article class="tile is-child box">
+              <p class="title">React Suspense Demo</p>
+              <p class="subtitle">Aligned with the right column</p>
+              <div class="content">
+                <div className="container">
+                  <div className="columns is-multiline">
+                    <Suspense
+                      ms={5000}
+                      fallback={<h2>Movies list is loading...</h2>}
+                    >
+                      <Movies />
+                    </Suspense>
+                  </div>
+                </div>
+              </div>
+            </article>
           </div>
         </div>
-      </Fragment>
+      </React.StrictMode>
     );
   }
 }
