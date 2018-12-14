@@ -19,7 +19,7 @@ const Movies = withCache(props => {
         result.length &&
         result.map(item => (
           <div key={Math.random()} className="column is-4">
-            <div className="movie">
+            <div className="box">
               <div className="movie__left">
                 <a
                   href={item.show.url}
@@ -54,23 +54,20 @@ class App extends Component {
     return (
       <React.StrictMode>
         <div className="App">
-          <div class="tile is-parent">
-            <article class="tile is-child box">
-              <p class="title">React Suspense Demo</p>
-              <p class="subtitle">Aligned with the right column</p>
-              <div class="content">
-                <div className="container">
-                  <div className="columns is-multiline">
-                    <Suspense
-                      ms={5000}
-                      fallback={<h2>Movies list is loading...</h2>}
-                    >
-                      <Movies />
-                    </Suspense>
-                  </div>
-                </div>
+          <section class="hero is-dark">
+            <div class="hero-body">
+              <div class="container">
+                <h1 class="title">React Suspense Demo</h1>
+                <h2 class="subtitle">Let's add some suspense! 😏👻</h2>
               </div>
-            </article>
+            </div>
+          </section>
+          <div className="container">
+            <div className="columns is-multiline">
+              <Suspense ms={5000} fallback={<h2>Movies list is loading...</h2>}>
+                <Movies />
+              </Suspense>
+            </div>
           </div>
         </div>
       </React.StrictMode>
