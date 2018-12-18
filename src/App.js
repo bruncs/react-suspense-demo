@@ -58,7 +58,12 @@ class App extends Component {
             <div class="hero-body">
               <div class="container">
                 <h1 class="title">React Suspense Demo</h1>
-                <h2 class="subtitle">Let's add some suspense! 😏👻</h2>
+                <h2 class="subtitle">
+                  Let's add some suspense!{" "}
+                  <span role="img" aria-label="ghost">
+                    😏👻
+                  </span>
+                </h2>
               </div>
             </div>
           </section>
